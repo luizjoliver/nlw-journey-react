@@ -1,5 +1,6 @@
 import { AtSign, Plane, User, X } from "lucide-react";
 import type { SyntheticEvent } from "react";
+import Button from "../../../Components-Atomic/Button";
 
 type ConfirmTripModalProps = {
   emails: string[];
@@ -40,9 +41,11 @@ export default function ConfirmTripModal({
             <h2 className="text-lg font-semibold">
               Confirmar criação da viagem
             </h2>
-            <button type="button" onClick={onClose}>
-              <X className="size-5 text-zinc-400 cursor-pointer" />
-            </button>
+
+            <X
+              className="size-5 text-zinc-400 cursor-pointer"
+              onClick={onClose}
+            />
           </div>
           <p className="text-sm text-zinc-400">
             Para concluir a criação da viagem para
@@ -91,23 +94,10 @@ export default function ConfirmTripModal({
             />
           </div>
 
-          <button
-            type="submit"
-            className="
-              bg-lime-300
-              text-lime-950
-              rounded-lg
-              px-5 py-2
-              font-medium
-              flex items-center justify-center gap-2
-              hover:brightness-90
-              w-full
-             cursor-pointer
-            "
-          >
+          <Button type="submit" variant="primary" size="sm" fullWidth>
             Confirmar criação da viagem
             <Plane className="size-5" />
-          </button>
+          </Button>
         </form>
       </div>
     </div>

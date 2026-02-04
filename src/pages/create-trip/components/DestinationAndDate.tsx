@@ -1,4 +1,5 @@
 import { ArrowRight, Calendar, MapPin, Settings2 } from "lucide-react";
+import Button from "../../../Components-Atomic/Button";
 
 type DestinationAndDateProps = {
   isGuestsInputOpen: boolean;
@@ -57,43 +58,15 @@ export default function DestinationAndDate({
       <div className="hidden sm:block w-px h-6 bg-zinc-800" />
 
       {!isGuestsInputOpen ? (
-        <button
-          type="button"
-          onClick={onContinue}
-          className="
-            bg-lime-300
-            text-lime-950
-            rounded-lg
-            px-5 py-3
-            font-medium
-            flex items-center justify-center gap-2
-            hover:brightness-90
-            w-full sm:w-auto
-            cursor-pointer
-          "
-        >
+        <Button variant="primary" onClick={onContinue}>
           Continuar
           <ArrowRight className="size-5" />
-        </button>
+        </Button>
       ) : (
-        <button
-          type="button"
-          onClick={onEditDestination}
-          className="
-            text-zinc-200
-            rounded-lg
-            px-5 py-3
-            font-medium
-            flex items-center justify-center gap-2
-            bg-zinc-500
-            hover:bg-zinc-700
-            w-full sm:w-auto
-            cursor-pointer
-          "
-        >
+        <Button type="button" onClick={onEditDestination}>
           Alterar local/data
           <Settings2 className="size-5" />
-        </button>
+        </Button>
       )}
     </div>
   );

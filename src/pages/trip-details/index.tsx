@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import Button from "../../Components-Atomic/Button";
 import Activities from "./components/Activities";
 import CreateActivityModal from "./components/CreateActivityModal";
 import DestinationInfosHeader from "./components/DestinationInfosHeader";
@@ -24,24 +25,14 @@ export default function TripsDetail() {
           <div className="flex items-center justify-between">
             <h2 className="text-3xl font-semibold">Atividades</h2>
 
-            <button
-              type="button"
-              className="
-            bg-lime-300
-            text-lime-950
-            rounded-lg
-            px-5 py-2
-            font-medium
-            flex items-center justify-center gap-2
-            hover:brightness-90
-            w-full sm:w-auto
-            cursor-pointer
-          "
+            <Button
+              variant="primary"
+              size="sm"
               onClick={openCreateActivityModal}
             >
               <Plus className="size-5" />
               Cadastrar Atividade
-            </button>
+            </Button>
           </div>
 
           <Activities />
