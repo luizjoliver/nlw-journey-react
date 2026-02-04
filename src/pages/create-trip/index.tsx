@@ -1,11 +1,11 @@
-import { ArrowRight, UserRoundPlus } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import bg from "../../assets/bg.png";
 import logo from "../../assets/logo.svg";
-import ConfirmTripModal from "../../components/ConfirmTripModal";
-import DestinationAndDate from "../../components/DestinationAndDate";
-import InviteGuestModal from "../../components/InviteGuestModal";
+import ConfirmTripModal from "./components/ConfirmTripModal";
+import DestinationAndDate from "./components/DestinationAndDate";
+import InviteGuestModal from "./components/InviteGuestModal";
+import InviteGuestStep from "./components/InviteGuestStep";
 
 function CreateTripPage() {
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
@@ -39,62 +39,11 @@ function CreateTripPage() {
             onEditDestination={() => setIsGuestsInputOpen(false)}
           />
           {isGuestsInputOpen && (
-            <div
-              className="
-              bg-zinc-900
-              px-4 py-4
-              rounded-xl
-              flex flex-col gap-4
-              sm:flex-row sm:items-center sm:gap-3
-              shadow-shape text-white
-            "
-            >
-              <button
-                className="flex items-center gap-2 flex-1 w-full cursor-pointer"
-                type="button"
-                onClick={() => setIsGuestsModalOpen(true)}
-              >
-                <UserRoundPlus className="size-5 text-zinc-400" />
-
-                {emailsToInvite.length > 0 ? (
-                  <span>{emailsToInvite.length} Pessoa(s) convidada(s)</span>
-                ) : (
-                  <span className="text-zinc-400 text-lg">
-                    Quem estará na viagem ?
-                  </span>
-                )}
-
-                <input
-                  type="text"
-                  placeholder=""
-                  className="
-                  bg-transparent
-                  text-base sm:text-lg
-                  placeholder:text-zinc-400
-                  flex-1
-                  outline-none
-                "
-                />
-              </button>
-              <div className="hidden sm:block w-px h-6 bg-zinc-800" />
-              <button
-                className="
-                bg-lime-300
-                text-lime-950
-                rounded-lg
-                px-5 py-3
-                font-medium
-                flex items-center justify-center gap-2
-                cursor-pointer
-                hover:brightness-90
-                w-full sm:w-auto
-              "
-                onClick={() => setIsConfirmTripModalOpen(true)}
-              >
-                Confirmar viagem
-                <ArrowRight className="size-5" />
-              </button>
-            </div>
+            <InviteGuestStep
+              emails={emailsToInvite}
+              openConfirmTripModal={() => setIsConfirmTripModalOpen(true)}
+              openGuestModal={() => setIsGuestsModalOpen(true)}
+            />
           )}
         </div>
 

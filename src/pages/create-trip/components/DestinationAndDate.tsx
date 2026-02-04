@@ -22,7 +22,6 @@ export default function DestinationAndDate({
         shadow-shape
       "
     >
-      {/* DESTINO */}
       <div className="flex items-center gap-2 flex-1 w-full">
         <MapPin className="size-5 text-zinc-400" />
         <input
@@ -39,7 +38,6 @@ export default function DestinationAndDate({
         />
       </div>
 
-      {/* DATA */}
       <div className="flex items-center gap-2 w-full sm:w-auto">
         <Calendar className="size-5 text-zinc-400" />
         <input
@@ -87,6 +85,7 @@ export default function DestinationAndDate({
             px-5 py-3
             font-medium
             flex items-center justify-center gap-2
+            bg-zinc-500
             hover:bg-zinc-700
             w-full sm:w-auto
             cursor-pointer
