@@ -5,8 +5,10 @@ import Button from "../../../Components-Atomic/Button";
 type ConfirmTripModalProps = {
   emails: string[];
   onClose: () => void;
-  onConfirmTrip: () => void;
+  onConfirmTrip: (e: SyntheticEvent<HTMLFormElement>) => void;
   onAddEmail?: (email: string) => void;
+  setOwnerName: (name: string) => void;
+  setOwnerEmail: (email: string) => void;
 };
 
 export default function ConfirmTripModal({
@@ -14,6 +16,8 @@ export default function ConfirmTripModal({
   onClose,
   onConfirmTrip,
   onAddEmail,
+  setOwnerEmail,
+  setOwnerName,
 }: ConfirmTripModalProps) {
   function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,7 +34,7 @@ export default function ConfirmTripModal({
       onAddEmail(email);
     }
 
-    onConfirmTrip();
+    onConfirmTrip(e);
   }
 
   return (
@@ -75,6 +79,7 @@ export default function ConfirmTripModal({
                 flex-1
                 outline-none
               "
+              onChange={(e) => setOwnerName(e.target.value)}
             />
           </div>
 
@@ -91,6 +96,7 @@ export default function ConfirmTripModal({
                 flex-1
                 outline-none
               "
+              onChange={(e) => setOwnerEmail(e.target.value)}
             />
           </div>
 
